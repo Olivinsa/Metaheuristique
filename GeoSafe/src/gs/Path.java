@@ -2,6 +2,7 @@ package gs;
 
 import java.util.ArrayList;
 
+//classe représentant un chemin d'évacuation du graphe
 public class Path {
 	
 	private int numPath;
@@ -9,16 +10,20 @@ public class Path {
 	private int population;
 	private int maxRate;
 	private int length;	
+	//liste des ids des noeuds de ce chemin
 	private ArrayList<String> tabNodes = new ArrayList<String>();
+	//liste des arcs de ce chemin
 	private ArrayList<Edge> tabEdges = new ArrayList<Edge>();
 	
-	public Path(int numPath, String ligne) {
-		this.numPath = numPath;
+	//on donne un numéro d'identification à chaque chemins
+	//construction a partir d'une ligne du fichier d'un graphe
+	public Path(int numP, String ligne) {
+		numPath = numP;
 		String[] liste = ligne.split(" ");
-		this.idStartNode = liste[0];
-		this.population = Integer.parseInt(liste[1]);
-		this.maxRate = Integer.parseInt(liste[2]);
-		this.length = Integer.parseInt(liste[3]);
+		idStartNode = liste[0];
+		population = Integer.parseInt(liste[1]);
+		maxRate = Integer.parseInt(liste[2]);
+		length = Integer.parseInt(liste[3]);
 		int numParam = 4;
 		tabNodes.add(idStartNode);
 		while(numParam < liste.length) {
@@ -35,10 +40,11 @@ public class Path {
 		return tabEdges;
 	}
 	
-	public void addTabEdges(ArrayList<Edge> tabEdges) {
-		this.tabEdges = tabEdges;
+	public void addTabEdges(ArrayList<Edge> tabE) {
+		tabEdges = tabE;
 	}
 	
+	//recupere le temps necessaire pour évacuer ce chemin
 	public double getTime() {
 		double time = 0;
 		for(Edge e: tabEdges) {
@@ -51,6 +57,8 @@ public class Path {
 		return idStartNode;
 	}
 	
+	//calcule les taches du chemin
+	//met à jour la liste des taches des arcs de ce chemin
 	public void calcTasks(int evacRate, double evacStart) {
 		Edge firstEdge = tabEdges.get(0);
 		firstEdge.addTask(numPath, population, evacStart, evacRate);
@@ -61,6 +69,7 @@ public class Path {
 		}
 	}
 	
+	//supprime toutes les taches de ce chemin
 	public void delTasks() {
 		for(Edge e:tabEdges) {
 			e.delTask(numPath);
@@ -85,6 +94,8 @@ public class Path {
 		return maxRate;
 	}
 	
+	//parfois dans les données, le taux maximal du chemin était plus élevé que la capacité de certains arc qu'il traversait
+	//on calcule donc un maxrate plus réaliste pour qu'il puisse au moins passer dans chacuns de ses arcs
 	public int getOptiRate() {
 		int optiRate = Integer.MAX_VALUE;
 		for(Edge e:tabEdges) {
