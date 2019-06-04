@@ -3,6 +3,7 @@ package gs;
 
 public class Main {
 	
+	//adresse du dossier des instances
 	public static String address = "/home/boulle/Bureau/Documents/Metaheuristique/Instances/";
 
 	public static void main(String[] args) {
