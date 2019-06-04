@@ -1,0 +1,10 @@
+exemple
+3
+2 5.0 0.0
+1 8.0 3.0
+3 3.0 0.0
+true
+37.0
+0 ms
+heuristique borne sup 2
+
