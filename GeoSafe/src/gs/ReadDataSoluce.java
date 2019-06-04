@@ -2,6 +2,7 @@ package gs;
 
 import java.util.ArrayList;
 
+//fonction qui lit un fichier de données pour en extraire la solution associée
 public class ReadDataSoluce {
 
 	private String fileName;
