@@ -2,6 +2,7 @@ package gs;
 
 import java.util.ArrayList;
 
+//classe représentant une solution du probleme
 public class Soluce {
 	
 	private String instanceName;
@@ -9,7 +10,9 @@ public class Soluce {
 	//liste des noeuds à evacuer
 	private ArrayList<Node> listNodes;
 	private boolean natureSoluce;
-	private double valObj; //valeur de la fonction objective
+	//valeur de la fonction objective
+	private double valObj;
+	//temps de calcul pour al solution
 	private long calcTime;
 	private String method;
 	private String freeField;
@@ -33,6 +36,7 @@ public class Soluce {
 		this.freeField = freeField;
 	}
 	
+	//affiche la solution dans la console
 	public void printSoluce() {
 		System.out.println("Soluce "+instanceName+" : ");
 		System.out.println("nbEvacNodes = "+nbEvacNodes);
@@ -44,7 +48,7 @@ public class Soluce {
 		System.out.println("freeField = "+freeField);
 	}
 
-	
+	//récupere un des noeuds de départ à partir de son id
 	public Node getNode(String idNode) {
 		for(Node n : listNodes) {
 			if(n.getId().equals(idNode)) {
@@ -58,6 +62,7 @@ public class Soluce {
 		return valObj;
 	}
 	
+	//écrit la solution dans un fichier txt
 	public void printToTxt() {
 		ArrayList<String> lignes = new ArrayList<String>();
 		lignes.add(instanceName);
