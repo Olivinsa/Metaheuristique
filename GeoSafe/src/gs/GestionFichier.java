@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 //classe pour interagir avec les fichiers
+//cette classe est géniale et je la ressort à chaque projet java
 public class GestionFichier {
 
 	//fonction pour lire un fichier txt et stocker le contenu dans lignes
