@@ -39,7 +39,7 @@ public class Diversification {
 			//on calcule la valeur objective de cette recherche
 			double valObj = r.Recherche(Double.MAX_VALUE, copie);
 			//System.out.print("    "+valObj+" en partant de ");
-			printList(copie);
+			//printList(copie);
 			//si la valeur est meilleur que celle qu'on a en mémoire, on la remplace 
 			//et on retient la liste qui y a mené
 			if(valObj < bestValObj) {
@@ -51,8 +51,8 @@ public class Diversification {
 
 		}
 		//fin, on affiche la soluce et on la print en txt
-		System.out.print("Solution : "+bestValObj+" pour ");
-		printList(listBest);
+		//System.out.print("Solution : "+bestValObj+" pour ");
+		//printList(listBest);
 		soluce.printToTxt();
 		
 	}
@@ -76,6 +76,10 @@ public class Diversification {
 	
 	public Soluce getSoluce() {
 		return soluce;
+	}
+	
+	public double getValObj() {
+		return soluce.getValObj();
 	}
 
 }
