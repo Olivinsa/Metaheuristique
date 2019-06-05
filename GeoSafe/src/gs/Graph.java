@@ -151,7 +151,7 @@ public class Graph {
 	//heuristique pour calculer la borne supérieure
 	//méthode grossiere (voir calcBornSup2 pour une méthode plus élégante)
 	//on contruit la solution en plaçant les noeuds de départ de chaques chemins
-	//mais à chauque fois, on fait démarrer le chemin que lorsque le précédent est entierement terminé
+	//mais à chaque fois, on fait démarrer le chemin que lorsque le précédent est entierement terminé
 	//du coup il n'y a aucuns conflits, mais le temps d'évacuation est très grand
 	public void calcBornSup() {
 		
