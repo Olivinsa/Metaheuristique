@@ -37,8 +37,8 @@ public class RechercheLocale {
 			g = new ReadDataGraph(addressGraph).getGraph();
 			//on calcule la valeur objectif pour chaques voisins
 			double newValObj = g.calcBornSup2(voisin, proba);
-			System.out.print("    "+newValObj+" pour ");
-			printList(voisin);
+			//System.out.print("    "+newValObj+" pour ");
+			//printList(voisin);
 			//on enregistre tout si la valeur a été améliorée
 			if(newValObj<bestValObj) {
 				bestValObj = newValObj;
